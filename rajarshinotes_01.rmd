@@ -1,0 +1,165 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+
+last.num = as.integer(readline(prompt = "Enter the number:"))
+
+if(last.num<=0){
+  # check for 0 or negative
+  if(last.num==0){
+    print("factorial = 1")
+  } else {
+    print("give positive number")
+  }
+} else {
+  # write factorial
+  x = 1
+  while(last.num>0) {
+  
+  #print(last.num)
+  x = x*last.num
+  last.num = last.num - 1
+  }
+  
+  cat("factorial =", x)
+  
+}
+
+
+
+
+
+```
+
+Q2. Print the sum of squares on N natural numbers upto 10 terms.
+```{r}
+
+num.sum = 0
+num.start = 1
+while(num.start<4){
+  num.sum=num.sum+(num.start*num.start)
+  num.start=num.start+1
+}
+print(num.sum)
+```
+
+
+Q3. Find the average of the numbers given in the console. Hint: When the user prints "done" it marks the end of inputs.
+```{r}
+
+avg.sum = 0
+avg.freq = 1
+user.input = ""
+
+while(user.input!="done") {
+  
+  user.input = readline(prompt = "Enter the number:")
+  
+  if(user.input=="done") {
+    break;
+  }
+  
+  user.input.int = as.integer(user.input)
+  avg.sum = avg.sum + user.input.int
+  avg.freq = avg.freq + 1
+  avg = avg.sum/(avg.freq-1)
+}
+
+cat("Average =",avg)
+
+
+```
+
+Ex.2 Do vector
+
+```{r}
+
+vector1<-(1:10)
+vector1
+print("Hello")
+
+```
+
+Ex.3 Work - String Operations
+
+```{r}
+
+str.1 = "cataclism"
+
+# Number of characters in the String
+print(nchar(str.1))
+
+# Number of String elements in the String vector itself
+print(length(str.1))
+
+
+str.2 <- substr(str.1, 1, 3)
+print(str.2)
+
+str.3 <- sub("cat", "dog", str.1)
+print(str.3)
+
+#Replacing C with D in string.1 -> Using stringr package
+library(stringr)
+cat(chartr("c","d", str.1))
+
+str.splitted<-strsplit(str.1,NULL)[[1]]
+str.splitted
+
+rev(str.splitted)
+cat(paste(rev(str.splitted)))
+
+
+# To count the characters of string -> str_count
+# To detect any chracter of string -> str_detect
+
+str_count(str.1)
+count.a=0
+count.e=0
+count.i=0
+count.o=0
+count.u=0
+if(str_detect(str.1,"a")||str_detect(str.1,"A")){
+  count.a=str_count(str.1,"a")+str_count(str.1,"A")
+  cat("Occurance of a/A =", count.a, "\n")
+}else{
+  cat("Occurance of a/A =", count.a, "\n")
+}
+if(str_detect(str.1,"e")||str_detect(str.1,"E")){
+  count.e=str_count(str.1,"e")+str_count(str.1,"E")
+  cat("Occurance of e/E =", count.e, "\n")
+}else{
+  cat("Occurance of e/E =", count.e, "\n")
+}
+if(str_detect(str.1,"i")||str_detect(str.1,"I")){
+  count.i=str_count(str.1,"i")+str_count(str.1,"I")
+  cat("Occurance of i/I =", count.i, "\n")
+}else{
+  cat("Occurance of i/I =", count.i, "\n")
+}
+if(str_detect(str.1,"o")||str_detect(str.1,"O")){
+  count.o=str_count(str.1,"o")+str_count(str.1,"O")
+  cat("Occurance of o/O =", count.o, "\n")
+}else{
+  cat("Occurance of o/O =", count.o, "\n")
+}
+if(str_detect(str.1,"u")||str_detect(str.1,"U")){
+  count.u=str_count(str.1,"u")+str_count(str.1,"U")
+  cat("Occurance of u/U =", count.u, "\n")
+}else{
+  cat("Occurance of u/U =", count.u, "\n")
+}
+cat("Total no. of vowels :", count.a+count.e+count.i+count.o+count.u)
+
+
+
+
+
+```
